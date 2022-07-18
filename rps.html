@@ -18,17 +18,80 @@
             } else {
                 computerChoice = 'scissors';
             }
-            console.log(computerChoice);
+            return computerChoice;
         }
 
-        function playRound() {
+        function getPlayerChoice() {
+            let playerChoice;
+            do {
+                playerChoice = prompt("Rock, paper, or scissors?").toLowerCase();
+            }
+            while (playerChoice !== "rock" && playerChoice !== "paper" && playerChoice !== "scissors");
+            return playerChoice;
+        }
 
+        let playerScore = 0;
+        let computerScore = 0;
+        let playerWins = false;
+        let tie = false;
+
+        function playRound(playerChoice, computerChoice) {
+            playerChoice = getPlayerChoice();
+            computerChoice = getComputerChoice();
+            tie = false;
+            playerWins = false;
+            if (playerChoice == computerChoice) {
+                tie = true;
+            } else if (playerChoice == 'rock' && computerChoice == 'scissors') {
+                playerWins = true;
+            } else if (playerChoice == 'scissors' && computerChoice == 'paper') {
+                playerWins = true;
+            } else if (playerChoice == 'paper' && computerChoice == 'rock') {
+                playerWins = true;
+            } else {
+                playerWins = false;
+            }
+
+            if (tie == true) {
+                console.log('Tie!');
+                return tie;
+            } else if (playerWins == true) {
+                console.log(`You win! ${playerChoice} beats ${computerChoice}`);
+                return playerWins;
+            } else {
+                console.log(`You Lose! ${computerChoice} beats ${playerChoice}`);
+                return playerWins;
+            }
         }
 
         function playGame() {
             for (let i = 0; i < 5; i++) {
                 playRound();
+                if (playerWins == true) {
+                    playerScore++;
+                } else if (tie == false && playerWins == false) {
+                    computerScore++;
+                } else continue;
+            }
 
+            if (playerScore > computerScore) {
+                console.log('Congratulations, player wins!');
+            } else if (computerScore > playerScore) {
+                console.log('Better luck next time! Computer wins!');
+            } else {
+                console.log('WOW! You tied!')
+            }
+            playAgain();
+        }
+
+        function playAgain() {
+            reset = prompt("Play again? y/n").toLowerCase();
+            if (reset == 'y') {
+                playerScore = 0;
+                computerScore = 0;
+                playGame();
+            } else {
+                console.log('Thanks for playing!')
             }
         }
     </script>
