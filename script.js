@@ -101,6 +101,8 @@ function playAgain() {
     playAgainButton.addEventListener('click', () => {
         playerScore = 0;
         computerScore = 0;
+        winnerText.textContent = "IT'S GAME TIME!";
+        scoreText.textContent = "YOU WANT MORE?"
         endGameModal.style.display = 'none';
         game.style.display = 'block';
     })

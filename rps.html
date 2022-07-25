@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=100vh">
     <link href="styles.css" rel="stylesheet">
     <script src="script.js" defer></script>
     <title>Rock Paper Scissors</title>
@@ -11,7 +11,6 @@
 <body>
     <div class="header-container">
         <h1>SAVE THE GALAXY!</h1>
-        <h3>DO YOU HAVE WHAT IT TAKES TO DEFEAT THE ALIENS IN A GAME OF ROCK, PAPER, SCISSORS?</h3>
     </div>
     <div id="endGameModal">
         <p id="endGameText"></p>
@@ -23,17 +22,19 @@
             <h3>FIRST TO 5 POINTS IS THE VICTOR</h3>
         </div>
         <div class="choice-container">
-            <p id="score-text">WHO WINS THIS ROUND?</p>
-            <p id="winner-text">LET'S FIND OUT!</p>
+            <div class="choice-text">
+                <p id="score-text">WHO WINS THIS ROUND?</p>
+                <p id="winner-text">LET'S FIND OUT!</p>
+            </div>
             <div class="choice-images">
-                <img src="./images/predator.jpeg" width="auto" height="175px"> <!-- https://deathbattlefanon.fandom.com/wiki/Predator -->
-                <img src="./images/space-alien.png" width="auto" height="175px"> <!-- https://www.osborne-group.com/space-clipart-alien-7-transparent-2/ -->
+                <img id="space-hero" src="./images/space-hero.png" width="275" height="175px"> <!-- https://en.brickimedia.org/wiki/Retro_Space_Hero -->
+                <img id="space-alien" src="./images/space-alien.png" width="275" height="175px"> <!-- https://www.osborne-group.com/space-clipart-alien-7-transparent-2/ -->
             </div>
         </div>
         <div class="button-container">
-            <button class="gameButton" id="rock">ROCK</button>
-            <button class="gameButton" id="paper">PAPER</button>
-            <button class="gameButton" id="scissors">SCISSORS</button>
+            <button class="game-button" id="rock"><img src="./images/rock.webp" width="150px" height="auto"></button> <!-- https://subnautica.fandom.com/wiki/Rock -->
+            <button class="game-button" id="paper"><img src="./images/paper.png" width="150px" height="auto"></button> <!-- https://researchwhisperer.org/2022/02/08/when-is-a-paper-published/ -->
+            <button class="game-button" id="scissors"><img src="./images/scissors.webp" width="150px" height="auto"></button> <!-- https://sewaustin.com/products/gold-delicate-cut-scissors -->
         </div>
     </div>
     <div class="footer">
