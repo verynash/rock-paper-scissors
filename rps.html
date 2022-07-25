@@ -7,6 +7,9 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
+    <button class="gameButton" id="rock">ROCK</button>
+    <button class="gameButton" id="paper">PAPER</button>
+    <button class="gameButton" id="scissors">SCISSORS</button>
     <script>
         function getComputerChoice() {
             let rpsNumber = Math.floor(Math.random()*3) + 1;
@@ -21,50 +24,68 @@
             return computerChoice;
         }
 
-        function getPlayerChoice() {
+        const buttons = document.querySelectorAll('button');
+        const rockButton = document.getElementById('rock');
+        const paperButton = document.getElementById('paper');
+        const scissorsButton = document.getElementById('scissors');
+
+        rockButton.addEventListener('click', () => handleClick('rock'));
+        paperButton.addEventListener('click', () => handleClick('paper'));
+        scissorsButton.addEventListener('click', () => handleClick('scissors'));
+
+
+        function handleClick(playerChoice) {
+            playRound(playerChoice);
+            console.log(playerScore, computerScore)
+        }
+
+        /*function getPlayerChoice() {
             let playerChoice;
             do {
                 playerChoice = prompt("Rock, paper, or scissors?").toLowerCase();
             }
             while (playerChoice !== "rock" && playerChoice !== "paper" && playerChoice !== "scissors");
             return playerChoice;
-        }
+        }*/
 
         let playerScore = 0;
         let computerScore = 0;
         let playerWins = false;
         let tie = false;
 
-        function playRound(playerChoice, computerChoice) {
-            playerChoice = getPlayerChoice();
-            computerChoice = getComputerChoice();
+        function playRound(playerChoice) {
+            let computerChoice = getComputerChoice();
             tie = false;
             playerWins = false;
             if (playerChoice == computerChoice) {
                 tie = true;
             } else if (playerChoice == 'rock' && computerChoice == 'scissors') {
+                playerScore++;
                 playerWins = true;
             } else if (playerChoice == 'scissors' && computerChoice == 'paper') {
+                playerScore++;
                 playerWins = true;
             } else if (playerChoice == 'paper' && computerChoice == 'rock') {
+                playerScore++;
                 playerWins = true;
             } else {
+                computerScore++;
                 playerWins = false;
             }
 
             if (tie == true) {
-                console.log('Tie!');
+                console.log(`Tie! You both picked ${playerChoice}!`);
                 return tie;
             } else if (playerWins == true) {
-                console.log(`You win! ${playerChoice} beats ${computerChoice}`);
+                console.log(`You win! ${playerChoice} beats ${computerChoice}!`);
                 return playerWins;
             } else {
-                console.log(`You Lose! ${computerChoice} beats ${playerChoice}`);
+                console.log(`You Lose! ${computerChoice} beats ${playerChoice}!`);
                 return playerWins;
             }
         }
 
-        function playGame() {
+        /* function playGame() {
             for (let i = 0; i < 5; i++) {
                 playRound();
                 if (playerWins == true) {
@@ -82,7 +103,7 @@
                 console.log('WOW! You tied!')
             }
             playAgain();
-        }
+        } */
 
         function playAgain() {
             reset = prompt("Play again? y/n").toLowerCase();
