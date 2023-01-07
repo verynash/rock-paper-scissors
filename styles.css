@@ -30,6 +30,7 @@ body {
     flex-flow: column nowrap;
     flex-grow: 1;
     flex-shrink: 1;
+    margin: 0 auto 0 auto;
 }
 .game-header {
     margin-top: -1rem;
@@ -54,6 +55,11 @@ body {
     font-weight: bold;
     color: peru;
     font-size: 22px;
+    background-color: #000000a4;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 4px 12px 4px 12px;
+    border-radius: 8px;
 }
 .choice-images {
     display: flex;
@@ -64,14 +70,15 @@ body {
 .choice-images>img {
     width: 30%;
     height: auto;
+    max-height: 30vh;
 }
 
 .button-container {
     display: flex;
     flex-flow: row nowrap;
     flex-grow: 1;
-    justify-content: space-evenly;
-    margin-top: 24px;
+    justify-content: space-around;
+    margin-top: 2rem;
     margin-bottom: 4rem
 }
 .game-button, .game-button>img {
@@ -107,4 +114,13 @@ body {
     font-size: 48px;
     padding: 16px;
     font-weight: bold;
+}
+
+@media only screen and (max-width: 768px) {
+    .game-button, .game-button>img {
+        width: 30%;
+    }
+    .game-button {
+        height: 60px;
+    }
 }
