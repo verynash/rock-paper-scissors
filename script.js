@@ -82,7 +82,7 @@ let game = document.querySelector('.game-container');
 
 function endGame() {
     if (playerScore === 5) {
-        endGameText.textContent = 'CONGRATULATIONS! YOU WIN!'
+        endGameText.textContent = 'CONGRATULATIONS! THE UNIVERSE IS SAFE!'
         endGameModal.style.display = 'block';
         game.style.display = 'none';
     }
